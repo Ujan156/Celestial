@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id" style="overflow-y: auto;">
+<head>
+  <meta charset="UTF-8">
+  <title>Celestial — Final</title>
+  <link rel="stylesheet" href="css_1.css">
+</head>
+
+<body class="end-loading" style="overflow-y: auto;">
+
+<section id="end-final">
+
+  <div class="end-image">
+    <img src="2022-2025.png" alt="Kenangan 2022-2025">
+  </div>
+
+  <div class="end-text">
+    <p>
+      Di ruangan ini,
+      kami pernah tidak saling mengenal.
+    </p>
+
+    <p>
+      Dan di ruangan ini pula,
+      kami belajar arti bersama.
+    </p>
+    <p class="end-closing">
+      Pada akhirnya,
+      yang kami rindukan bukan wisudanya —
+      tapi awalnya.
+    </p>
+    <button class="end-memorial-btn">
+  Last Memorial
+</button>
+
+  </div>
+
+</section>
+<section id="last-memorial" class="memorial-hidden">
+
+  <div class="memorial-light"></div>
+  <div class="fireflies"></div>
+
+  <div class="memorial-content">
+   <div class="memorial-lyrics" id="memorialLyrics">
+  <div class="line">"Instrumen"</div>
+  <div class="line">Dibalik awan tinggi yang menghias langit senja</div>
+  <div class="line">Irama angin membawa pergi sendu dan tawa</div>
+  <div class="line">Rasa yang pernah ada antara aku, kau, kita</div>
+  <div class="line">Genggamlah erat waktu yang masih tersisa</div>
+
+  <div class="line">Aku pun tahu perjalanan kita tak mungkin abadi</div>
+  <div class="line">Namun kuharap kisah ini tak akan pergi</div>
+
+  <div class="line">Terima kasih, kuucap untuk semua cerita</div>
+  <div class="line">Aku belajar setiap akhir ada awal</div>
+  <div class="line">Rumah bukanlah tempat, namun siapa di sana</div>
+  <div class="line">Akan terus terkenang dalam hati selama-lamanya</div>
+
+  <div class="line">Deklarasi kecil saat jumpa setiap pagi</div>
+  <div class="line">Ingatkah pernah dibuat panik oleh hal-hal kecil</div>
+  <div class="line">Ruang ini dan kursi yang berjejer didalamnya</div>
+  <div class="line">Gurau samar terdengar menembus kaca</div>
+
+  <div class="line">Awalnya kita saling melukai dan tak sepaham</div>
+  <div class="line">Namun pasti akan memandang bintang yang sama</div>
+
+  <div class="line">Terima kasih untuk segala kenangan itu</div>
+  <div class="line">Aku bersiap 'tuk membuka lembar yang baru</div>
+  <div class="line">Raut wajah, karisma, tingkah laku dan senyummu</div>
+  <div class="line">Akan tetap kusimpan jauh di lubuk hatiku</div>
+
+  <div class="line">Bulan tahun yang penuh komedi dan melankoli</div>
+  <div class="line">Yang bersatu dan jadi warna dalam harmoni</div>
+  <div class="line">Entah apakah suatu saat 'kan bertemu lagi</div>
+
+  <div class="line">Jangan lupa kita pernah tertawa di sini</div>
+  <div class="line">Kenangan manis yang terlukis di dalam memori ini</div>
+
+  <div class="line"></div>
+  <div class="line">
+    <div class="memorial-ending" id="memorialEnding">
+    <p>
+      Selesai sudah perjalanan kami,<br>
+      Masa yang indah ya?
+    </p>
+
+    <a href="index.html" class="memorial-back">
+      Kembali ke Gerbang Celestial
+    </a>
+  </div>
+</div>
+</div>
+
+
+  </div>
+
+  <div class="memorial-photos">
+    <img src="photo1.jpg" class="float f1">
+    <img src="Photo2.jpeg" class="float f2">
+    <img src="photo1.jpg" class="float f3">
+    <img src="Photo2.jpeg" class="float f4">
+  </div>
+
+  <div class="memorial-ending" id="memorialEnding">
+    <p>
+      Selesai sudah perjalanan kami,<br>
+      Masa yang indah ya?
+    </p>
+
+    <a href="index.html" class="memorial-back">
+      Kembali ke Gerbang Celestial
+    </a>
+  </div>
+
+  <audio id="memorialAudio" src="Dirgantara.mp3"></audio>
+
+</section>
+
+<script>
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.body.classList.remove("end-loading");
+    document.body.classList.add("end-ready");
+  }, 200);
+});
+
+const memorial = document.getElementById("last-memorial");
+const audio = document.getElementById("memorialAudio");
+const ending = document.getElementById("memorialEnding");
+
+document.querySelector(".end-memorial-btn").addEventListener("click", () => {
+
+  memorial.classList.add("active");
+
+  audio.volume = 0;
+  audio.play();
+
+  let v = 0;
+  const fade = setInterval(() => {
+    v += 0.02;
+    audio.volume = Math.min(v, 0.4);
+    if (v >= 0.4) clearInterval(fade);
+  }, 200);
+
+  setTimeout(() => {
+    ending.classList.add("show");
+  }, 182400); 
+});
+const memorialBtn = document.querySelector(".end-memorial-btn");
+if (memorialBtn) {
+  memorialBtn.addEventListener("click", () => {
+
+    memorial.classList.remove("memorial-hidden");
+    memorial.classList.add("active");
+
+    audio.volume = 0;
+    audio.play();
+
+    let v = 0;
+    const fade = setInterval(() => {
+      v += 0.02;
+      audio.volume = Math.min(v, 0.4);
+      if (v >= 0.4) clearInterval(fade);
+    }, 200);
+
+  const lines = document.querySelectorAll(".line");
+let activeLines = [];
+
+const timings = [
+  0, 25, 32, 38, 43,
+  48, 56,
+  61, 68, 74, 78,
+  88, 94, 100, 106,
+  111, 119,
+  123, 129, 136, 140,
+  147, 152, 159,
+  164, 170, 183,185
+];
+
+function updateStack() {
+  activeLines.forEach((line, index) => {
+    const offset = (activeLines.length - index - 1) * -40;
+
+    line.style.transform =
+      `translate(-50%, ${offset}px) scale(${1 - index * 0.05})`;
+
+    line.style.opacity = 1 - index * 0.15;
+  });
+}
+
+lines.forEach((line, i) => {
+  setTimeout(() => {
+
+    line.classList.add("show");
+    activeLines.unshift(line);
+
+    if (activeLines.length > 1) {
+      const removed = activeLines.pop();
+      removed.style.opacity = 0;
+    }
+
+    updateStack();
+
+  }, timings[i] * 1000);
+});
+
+
+
+    audio.onended = () => {
+      ending.classList.add("show");
+    };
+
+  });
+}
+const fireflyContainer = document.querySelector(".fireflies");
+
+function createFirefly(type) {
+
+  const firefly = document.createElement("div");
+
+  if (type === "big") {
+    firefly.classList.add("firefly-big");
+  } else {
+    firefly.classList.add("firefly-small");
+  }
+
+  const size = type === "big"
+    ? Math.random() * 6 + 6
+    : Math.random() * 3 + 3;
+
+  firefly.style.width = size + "px";
+  firefly.style.height = size + "px";
+
+  firefly.style.left = Math.random() * 100 + "%";
+  firefly.style.top = Math.random() * 100 + "%";
+
+  const duration = type === "big"
+    ? Math.random() * 4 + 5
+    : Math.random() * 3 + 3;
+
+  firefly.style.animationDuration = duration + "s";
+
+  fireflyContainer.appendChild(firefly);
+
+  setTimeout(() => {
+    firefly.remove();
+  }, duration * 1000);
+}
+
+setInterval(() => {
+  createFirefly("small");
+}, 600);
+
+setInterval(() => {
+  createFirefly("big");
+}, 1800);
+
+
+
+</script>
+
+</body>
+</html>
